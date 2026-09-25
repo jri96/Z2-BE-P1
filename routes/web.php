@@ -16,10 +16,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    Route::get('/magazijn', [MagazijnController::class, 'overview'])->name('magazijn.overview');
-    Route::get('/magazijn/levering/{id}', [MagazijnController::class, 'leveringInfo'])->name('magazijn.levering');
-    Route::get('/magazijn/allergenen/{id}', [MagazijnController::class, 'allergenenInfo'])->name('magazijn.allergenen');
 });
+
+// Jamin Magazijn routes (no auth for testing)
+Route::get('/magazijn', [MagazijnController::class, 'overview'])->name('magazijn.overview');
+Route::get('/magazijn/levering/{id}', [MagazijnController::class, 'leveringInfo'])->name('magazijn.levering');
+Route::get('/magazijn/allergenen/{id}', [MagazijnController::class, 'allergenenInfo'])->name('magazijn.allergenen');
 
 require __DIR__.'/auth.php';
